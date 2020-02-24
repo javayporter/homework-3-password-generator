@@ -6,6 +6,8 @@ var generateBtn = document.querySelector("#generate");
 
 
 
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword() 
@@ -20,11 +22,25 @@ function writePassword() {
 generateBtn.addEventListener("click", promptUser) 
   function promptUser() {
     //prompts user to enter password lenghth
-  var passwordLth = prompt("Please choose your password length. Enter a number between 8 and 128.");
-  alert("Thank you. You entered " + passwordLth.value + ". Click OK to continue.")
-  
+  var passwordLth = prompt("Please choose your password length. Enter a whole number between 8 and 128.");
+  var userInputPwl = parseInt(passwordLth);
+
+    //only run logic if user enters a valid integer
+  if(userInputPwl >= 8 && userInputPwl <= 128) {
+  alert("Thank you. You entered " + userInputPwl + ". Click OK to continue.")
+  };
+
     //prompts user to select character type(s)
   var charTypes = prompt("Please select the character types you'd like used in your password. Enter 1 for lowercase. Enter 2 for uppercase. Enter 3 for numeric. Enter 4 for special characters. You may select multiple types. For example if you'd like to include lowercase, uppercase, and special characters in your password, you'd enter 124.");
+  var userInputCt = parseInt(charTypes);
+
+    //only run logic if user enters a valid option
+  if(userInputCt === 1 || userInputCt === 2 || userInputCt === 3 || userInputCt === 4) {
+    alert("Thank you. Click OK to generate password.")
+  } 
+  else {
+    alert("Please enter valid value.")
+  }
 };
 
 
