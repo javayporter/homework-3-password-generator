@@ -31,19 +31,6 @@ generateBtn.addEventListener("click", promptUser)
   alert("Thank you. You entered " + userInputPwl + ". Click OK to continue.")
   };
 
-    //prompts user to select character type(s)
-  var charTypeLower = confirm("Would you like your password to contain lowercase characters?");
-  var charTypeUpper = confirm("Would you like your password to contain uppercase characters?");
-  var charTypeNumeric = confirm("Would you like your password to contain numeric characters?");
-  var charTypeSpec = confirm("Would you like your password to contain special characters?");
-
-    //only run logic if user selects at least one character type
-  if(charTypeLower != true && charTypeNumeric != true && charTypeUpper != true && charTypeSpec != true) {
-    alert("Please select at least one character type.")
-  } 
-   else {
-    alert("Thank you. Click OK to generate password.")
-  }
     //execute code once then continue executing until user selects character type
   do {
     var charTypeLower = confirm("Would you like your password to contain lowercase characters?");
@@ -58,6 +45,8 @@ generateBtn.addEventListener("click", promptUser)
   
   while(charTypeLower != true && charTypeNumeric != true && charTypeUpper != true && charTypeSpec != true);
 
-
+  
   };  
+
+
 
