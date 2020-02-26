@@ -8,6 +8,7 @@ var generateBtn = document.querySelector("#generate");
 
 
 
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword() 
@@ -31,39 +32,19 @@ generateBtn.addEventListener("click", promptUser)
   };
 
     //prompts user to select character type(s)
-  var charTypes = prompt("Please select the character types you'd like used in your password. Enter 1 for lowercase. Enter 2 for uppercase. Enter 3 for numeric. Enter 4 for special characters. You may select multiple types. For example if you'd like to include lowercase, uppercase, and special characters in your password, you'd enter 124.");
-  var userInputCt = parseInt(charTypes);
+  var charTypeLower = confirm("Would you like your password to contain lowercase characters?");
+  var charTypeUpper = confirm("Would you like your password to contain uppercase characters?");
+  var charTypeNumeric = confirm("Would you like your password to contain numeric characters?");
+  var charTypeSpec = confirm("Would you like your password to contain special characters?");
 
-    //only run logic if user enters a valid option
-  if(userInputCt === 1 || userInputCt === 2 || userInputCt === 3 || userInputCt === 4) {
-    alert("Thank you. Click OK to generate password.")
+    //only run logic if user selects at least one character type
+  if(charTypeLower != true && charTypeNumeric != true && charTypeUpper != true && charTypeSpec != true) {
+    alert("Please select at least one character type.")
   } 
-  else {
-    alert("Please enter valid value.")
+   else {
+    alert("Thank you. Click OK to generate password.")
   }
-};
 
 
-  
+  };  
 
-
-
-
-
-// ```
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
-// ```
