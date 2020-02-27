@@ -1,5 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var passwordLth = prompt("Please choose your password length. Enter a whole number between 8 and 128.");
+var userInputPwl = parseInt(passwordLth);
 
 
 
@@ -11,7 +13,7 @@ var generateBtn = document.querySelector("#generate");
 
 
 
-// Write password to the #password input
+    // Write password to the #password input
 function writePassword() {
   var password = generatePassword() 
   var passwordText = document.querySelector("#password");
@@ -21,7 +23,7 @@ function writePassword() {
 }
 
 
-// Add event listener to generate button
+    // Add event listener to generate button
 generateBtn.addEventListener("click", promptUser) 
   function promptUser() {
     //prompts user to enter password lenghth
@@ -49,7 +51,7 @@ generateBtn.addEventListener("click", promptUser)
 
   
   };  
-
+    //function generates and returns password to page 
 function generate (length = userInputPwl) {
     var lowercase = "abcdefghijklmnopqrstuvwxyz";
     var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -57,7 +59,16 @@ function generate (length = userInputPwl) {
     var specChars = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
     var password = " ";
+
+    for (i = 0; i < length; i++) {
+      var chars = Math.floor(Math.random() * lowercase.length);
+      password += lowercase.substring(chars, chars + 1);
+    }
+    
+    return password;
 }
+
+document.querySelector("#password").innerHTML = generate()
 
   
 
