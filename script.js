@@ -9,6 +9,8 @@ var generateBtn = document.querySelector("#generate");
 
 
 
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword() 
@@ -47,6 +49,17 @@ generateBtn.addEventListener("click", promptUser)
 
   
   };  
+
+function generate (length = userInputPwl) {
+    var lowercase = "abcdefghijklmnopqrstuvwxyz";
+    var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var numeric = "0123456789";
+    var specChars = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+
+    var password = " ";
+}
+
+  
 
 
 
