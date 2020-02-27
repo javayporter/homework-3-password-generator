@@ -18,14 +18,20 @@ function writePassword() {
 generateBtn.addEventListener("click", promptUser) 
 
 function promptUser() {
-    //prompts user to enter password lenghth
+    //prompts user to enter password lenghth  
   var passwordLth = prompt("Please choose your password length. Enter a whole number between 8 and 128.");
   var userInputPwl = parseInt(passwordLth);
 
     //only run logic if user enters a valid integer
   if(userInputPwl >= 8 && userInputPwl <= 128) {
   alert("Thank you. You entered " + userInputPwl + ". Click OK to continue.")
+  }
+  else {
+    alert("Please enter a whole number between 8 and 128.")
+    prompt("Please choose your password length. Enter a whole number between 8 and 128.")
   };
+
+  
 
     //execute code once then continue executing until user selects character type
   do {
@@ -56,10 +62,10 @@ function promptUser() {
             for (i = 0; i < length; i++) {
               var chars = Math.floor(Math.random() * allChars.length);
               password += allChars.substring(chars, chars + 1);
-              }
+                }
   
-  return password;
-              }
+            return password;
+                }
 
   document.querySelector("#password").innerHTML = generate() 
   };  
