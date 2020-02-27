@@ -1,14 +1,5 @@
-// Assignment Code
+    // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var passwordLth = prompt("Please choose your password length. Enter a whole number between 8 and 128.");
-var userInputPwl = parseInt(passwordLth);
-
-
-
-
-
-
-
 
 
 
@@ -25,7 +16,8 @@ function writePassword() {
 
     // Add event listener to generate button
 generateBtn.addEventListener("click", promptUser) 
-  function promptUser() {
+
+function promptUser() {
     //prompts user to enter password lenghth
   var passwordLth = prompt("Please choose your password length. Enter a whole number between 8 and 128.");
   var userInputPwl = parseInt(passwordLth);
@@ -49,28 +41,26 @@ generateBtn.addEventListener("click", promptUser)
   
   while(charTypeLower != true && charTypeNumeric != true && charTypeUpper != true && charTypeSpec != true);
 
-  
-  };  
+
     //function generates and returns password to page 
-function generate (length = userInputPwl) {
-    var lowercase = "abcdefghijklmnopqrstuvwxyz";
-    var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var numeric = "0123456789";
-    var specChars = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+          function generate (length = userInputPwl) {
+              var lowercase = "abcdefghijklmnopqrstuvwxyz";
+              var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+              var numeric = "0123456789";
+              var specChars = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
-    var password = " ";
+              var allChars = lowercase + uppercase + numeric + specChars;
 
-    for (i = 0; i < length; i++) {
-      var chars = Math.floor(Math.random() * lowercase.length);
-      password += lowercase.substring(chars, chars + 1);
-    }
-    
-    return password;
-}
+              var password = " ";
 
-document.querySelector("#password").innerHTML = generate()
-
+            for (i = 0; i < length; i++) {
+              var chars = Math.floor(Math.random() * allChars.length);
+              password += allChars.substring(chars, chars + 1);
+              }
   
+  return password;
+              }
 
-
-
+  document.querySelector("#password").innerHTML = generate() 
+  };  
+   
